@@ -1,0 +1,246 @@
+/* ============================================================
+   painel.css — Estilos dos painéis (aluno + admin)
+   ============================================================ */
+
+.panel-section { display: block; }
+.panel-section.hidden { display: none; }
+
+/* ── Welcome Banner ── */
+.welcome-banner {
+  background: linear-gradient(135deg, #1B2A4A 0%, #2d4270 45%, #4a7fa5 100%);
+  border-radius: var(--r-lg);
+  padding: 30px 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--sh-md);
+  margin-bottom: 26px;
+}
+.welcome-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(247,163,0,0.08);
+}
+.welcome-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: 80px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+.wb-content { position: relative; z-index: 1; }
+.wb-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(247,163,0,0.18);
+  border: 1px solid rgba(247,163,0,0.30);
+  color: var(--senac-orange-mid);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 13px;
+  border-radius: var(--r-pill);
+  margin-bottom: 11px;
+}
+.wb-tag svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+.wb-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+.wb-sub { font-size: 13.5px; color: rgba(255,255,255,0.58); }
+.wb-actions {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* ── Atendimento Items (aluno view) ── */
+.atendimento-item {
+  background: var(--white);
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--gray-100);
+  padding: 18px 20px;
+  margin-bottom: 11px;
+  transition: box-shadow .2s, border-color .2s;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.atendimento-item:hover { box-shadow: var(--sh-sm); border-color: var(--senac-orange-mid); }
+.ci-status-bar { width: 4px; min-height: 56px; border-radius: 4px; align-self: stretch; flex-shrink: 0; }
+.ci-body { flex: 1; min-width: 0; }
+.ci-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 11px; margin-bottom: 7px; }
+.ci-motivo { font-weight: 600; font-size: 14px; color: var(--ink); line-height: 1.3; }
+.ci-meta { display: flex; gap: 14px; font-size: 12px; color: var(--gray-400); flex-wrap: wrap; margin-bottom: 5px; }
+.ci-meta-item { display: flex; align-items: center; gap: 4px; }
+.ci-meta-item svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 2; flex-shrink: 0; }
+.ci-obs { margin-top: 9px; padding: 7px 11px; background: var(--green-soft); border-left: 3px solid var(--green); border-radius: 0 var(--r-xs) var(--r-xs) 0; font-size: 12px; color: var(--green-d); font-style: italic; }
+.ci-actions { display: flex; gap: 6px; margin-top: 11px; }
+
+/* ── Filter pills row ── */
+.filter-pills-row { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 18px; }
+
+/* ── Wellbeing Card ── */
+.wellbeing-card {
+  background: linear-gradient(135deg, var(--green-soft), var(--blue-soft));
+  border: 1.5px solid var(--green-mid);
+  border-radius: var(--r-md);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.wb-card-icon { width: 48px; height: 48px; flex-shrink: 0; }
+.wb-card-icon svg { width: 48px; height: 48px; stroke: var(--green-d); fill: none; stroke-width: 1.3; opacity: .7; }
+.wb-card-content { flex: 1; }
+.wb-card-content h3 { font-family: var(--font-display); font-size: 15.5px; font-weight: 600; color: var(--senac-navy); margin-bottom: 5px; }
+.wb-card-content p { font-size: 13.5px; color: var(--gray-500); line-height: 1.6; }
+
+/* ── Perfil ── */
+.perfil-avatar-row { display: flex; align-items: center; gap: 17px; margin-bottom: 22px; }
+.perfil-avatar { width: 62px; height: 62px; border-radius: 50%; background: linear-gradient(135deg, var(--senac-orange), var(--senac-navy)); display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; color: var(--white); flex-shrink: 0; box-shadow: var(--sh-sm); }
+.perfil-info h2 { font-family: var(--font-display); font-size: 19px; font-weight: 600; color: var(--senac-navy); margin-bottom: 4px; }
+.perfil-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.perfil-field label { display: block; font-size: 11px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 3px; }
+.perfil-field span { font-size: 14px; color: var(--ink); font-weight: 500; }
+
+/* ── Detail Modal sections ── */
+.detail-section { margin-bottom: 16px; }
+.detail-label { font-size: 11px; font-weight: 800; letter-spacing: 1.1px; text-transform: uppercase; color: var(--gray-300); margin-bottom: 4px; }
+.detail-value { font-size: 14.5px; color: var(--ink); }
+.detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-bottom: 16px; }
+
+/* ── Status colors for bar ── */
+.bar-aguardando { background: var(--s-wait); }
+.bar-confirmada  { background: var(--s-ok); }
+.bar-realizada   { background: var(--s-done); }
+.bar-cancelada   { background: var(--s-cancel); }
+.bar-falta       { background: var(--s-miss); }
+
+/* ── Course filter panel ── */
+.curso-tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.curso-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-500);
+  cursor: pointer;
+  transition: all .2s;
+}
+.curso-btn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+.curso-btn:hover { border-color: var(--senac-orange); color: var(--senac-navy); }
+.curso-btn.active { background: var(--senac-navy); border-color: var(--senac-navy); color: var(--white); }
+.curso-btn .curso-count { background: rgba(255,255,255,0.18); padding: 1px 6px; border-radius: var(--r-pill); font-size: 11px; }
+.curso-btn.active .curso-count { background: rgba(247,163,0,0.25); color: var(--senac-orange-mid); }
+
+/* Dashboard sem gráficos - visão de alunos */
+.dash-alunos-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+  gap: 20px;
+  margin-top: 20px;
+  align-items: stretch;
+}
+.dash-alunos-grid .data-table-wrap { min-height: 236px; }
+.dash-list { padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; }
+#dash-cursos,
+#dash-turmas,
+#dash-recentes-alunos { display: flex; flex-direction: column; gap: 10px; width: 100%; }
+.dash-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; padding: 11px 12px; border: 1px solid var(--gray-100); border-radius: var(--r-sm); background: var(--gray-50); }
+.dash-row-main { min-width: 0; }
+.dash-row-title { font-size: 13px; font-weight: 800; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dash-row-sub { font-size: 11.5px; color: var(--gray-400); margin-top: 2px; }
+.dash-row-value { font-family: var(--font-display); font-size: 22px; font-weight: 800; color: var(--senac-navy); line-height: 1; }
+.dash-row-track { grid-column: 1 / -1; height: 6px; border-radius: var(--r-pill); background: var(--gray-100); overflow: hidden; }
+.dash-row-fill { height: 100%; width: var(--pct,0%); border-radius: inherit; background: linear-gradient(90deg, var(--senac-orange), var(--senac-orange-d)); }
+.dash-resumo-grid { padding: 18px 20px; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+.dash-mini { padding: 15px 14px; border-radius: var(--r-md); border: 1px solid var(--gray-100); background: linear-gradient(180deg, var(--white), var(--gray-50)); }
+.dash-mini-value { font-family: var(--font-display); font-size: 30px; font-weight: 800; color: var(--ink); line-height: 1; }
+.dash-mini-label { font-size: 11.5px; color: var(--gray-400); font-weight: 700; margin-top: 6px; }
+.dash-mini.orange { border-color: rgba(247,163,0,.28); }
+.dash-mini.orange .dash-mini-value { color: var(--senac-orange-d); }
+.dash-mini.navy { border-color: var(--senac-navy-light); }
+.dash-mini.navy .dash-mini-value { color: var(--senac-navy); }
+.dash-mini.green { border-color: var(--green-mid); }
+.dash-mini.green .dash-mini-value { color: var(--green-d); }
+.dash-mini.blue { border-color: rgba(74,127,165,.28); }
+.dash-mini.blue .dash-mini-value { color: var(--blue-calm); }
+.dash-empty { padding: 26px 18px; text-align: center; color: var(--gray-400); font-size: 13px; }
+
+/* ── Icon utility ── */
+.icon { display: inline-flex; align-items: center; justify-content: center; }
+.icon svg { stroke: currentColor; fill: none; }
+
+/* ── Responsive ── */
+@media(max-width:960px) {
+  .welcome-banner { flex-direction: column; }
+  .wb-actions { width: 100%; }
+  .wb-actions .btn { width: 100%; }
+  .wb-title { font-size: 20px; }
+  .perfil-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .wellbeing-card { flex-direction: column; }
+  .dash-alunos-grid { grid-template-columns: 1fr; }
+  .dash-resumo-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width:560px) {
+  .dash-resumo-grid { grid-template-columns: 1fr; }
+}
+
+/* Dark mode - detalhes dos painéis */
+[data-theme="dark"] .welcome-banner {
+  background:
+    radial-gradient(circle at 92% 0%, rgba(255,181,71,.14), transparent 15rem),
+    linear-gradient(135deg, #18243b 0%, #21365a 52%, #17324a 100%);
+  border: 1px solid rgba(142,154,180,.20);
+}
+[data-theme="dark"] .atendimento-item {
+  background: linear-gradient(180deg, rgba(31,39,58,.98), rgba(23,30,47,.98));
+  border-color: rgba(142,154,180,.22);
+}
+[data-theme="dark"] .ci-obs {
+  background: rgba(92,196,156,.12);
+  border-left-color: var(--green);
+  color: #9ee4c7;
+}
+[data-theme="dark"] .wellbeing-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(92,196,156,.16), transparent 16rem),
+    linear-gradient(135deg, rgba(31,39,58,.98), rgba(23,30,47,.98));
+  border-color: rgba(92,196,156,.28);
+}
+[data-theme="dark"] .wb-card-icon svg { stroke: var(--green); opacity: .9; }
+[data-theme="dark"] .wb-card-content h3,
+[data-theme="dark"] .perfil-info h2 { color: var(--senac-orange-mid); }
+[data-theme="dark"] .curso-btn .curso-count { background: rgba(255,255,255,.09); color: inherit; }
+[data-theme="dark"] .dash-row { background: rgba(15,20,33,.36); border-color: rgba(142,154,180,.18); }
+[data-theme="dark"] .dash-row-value { color: var(--senac-orange-mid); }
+[data-theme="dark"] .dash-row-track { background: rgba(142,154,180,.16); }
+[data-theme="dark"] .dash-mini { background: linear-gradient(180deg, rgba(31,39,58,.98), rgba(23,30,47,.98)); border-color: rgba(142,154,180,.18); }
+[data-theme="dark"] .dash-mini.navy .dash-mini-value,
+[data-theme="dark"] .dash-mini.orange .dash-mini-value { color: var(--senac-orange-mid); }
+[data-theme="dark"] .dash-mini.green .dash-mini-value { color: var(--green); }
+[data-theme="dark"] .dash-mini.blue .dash-mini-value { color: var(--blue-calm); }
